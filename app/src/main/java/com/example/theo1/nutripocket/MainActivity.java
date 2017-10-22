@@ -79,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
         calculateMacronutrientsGoal macnutriGoal = new calculateMacronutrientsGoal(nutriInfo);
         int[] macronutriGoal = macnutriGoal.calculate();
         carbGoal = macronutriGoal[0];
-        Log.d("HELP", valueOf(carbGoal));
         protGoal = macronutriGoal[1];
         fatGoal = macronutriGoal[2];
 
@@ -203,7 +202,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent)
     {
-        Log.d("HELP", "RequestCode: " + requestCode + " ResultCode: " + resultCode);
         if (resultCode == 5)
         {
             double[] nutrients = intent.getDoubleArrayExtra("nutrients");

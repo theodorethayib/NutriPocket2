@@ -52,7 +52,7 @@
     <string name="Sugar">Sugar: </string>
     <string name="Sodium">Sodium: </string>
     <string name="Protein">Protein: </string>
-    <string name="gram">g</string>
+    <string name="gram">&#160;g</string>
     <string name="dailyValue">Daily Value</string>
     <string name="dailyValueDescription">Some of the %DVs are based on a 2,000 calorie daily diet. However, your Daily Values may be higher or lower depending on your calorie needs, which vary according to age, gender, height, weight, and physical activity level.</string>
     <string name="submitButton">Submit</string>
