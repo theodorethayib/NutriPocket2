@@ -48,6 +48,47 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    @Override
+    public void onResume() {
+        super.onResume();  // Always call the superclass method first
+
+        SharedPreferences sharedPrefs = getSharedPreferences("userInfo", MODE_PRIVATE);
+
+        String age = sharedPrefs.getString("age", "");
+        String height = sharedPrefs.getString("height", "");
+        String weight = sharedPrefs.getString("weight", "");
+        String gender = sharedPrefs.getString("gender", "");
+        String activityLevel = sharedPrefs.getString("activityLevel", "");
+        String bodyType = sharedPrefs.getString("bodyType", "");
+        String goal = sharedPrefs.getString("goal", "");
+
+
+        String fName = sharedPrefs.getString("firstName", "");
+        String lName = sharedPrefs.getString("lastName", "");
+
+
+        String[] userInfo = new String[] {age, height, weight, gender, activityLevel, goal};
+
+        calculateCaloricGoal calGoal = new calculateCaloricGoal(userInfo);
+        int goalAmount = calGoal.calculate();
+        calorieGoal.setText("Daily Calorie Goal: " + String.valueOf(goalAmount));
+        calorieProgressBar.setMax(goalAmount);
+
+        String[] nutriInfo = new String[] {"" + goalAmount, bodyType};
+
+        calculateMacronutrientsGoal macnutriGoal = new calculateMacronutrientsGoal(nutriInfo);
+        int[] macronutriGoal = macnutriGoal.calculate();
+        carbGoal = macronutriGoal[0];
+        Log.d("HELP", valueOf(carbGoal));
+        protGoal = macronutriGoal[1];
+        fatGoal = macronutriGoal[2];
+
+        carbString.setText(currentCarbs + " / " + carbGoal);
+        protString.setText(currentProts + " / " + protGoal);
+        fatString.setText(currentFats + " / " + fatGoal);
+
+
+        }
 
 
     @Override
@@ -142,7 +183,6 @@ public class MainActivity extends AppCompatActivity {
         calculateMacronutrientsGoal macnutriGoal = new calculateMacronutrientsGoal(nutriInfo);
         int[] macronutriGoal = macnutriGoal.calculate();
         carbGoal = macronutriGoal[0];
-        Log.d("HELP", valueOf(carbGoal));
         protGoal = macronutriGoal[1];
         fatGoal = macronutriGoal[2];
 

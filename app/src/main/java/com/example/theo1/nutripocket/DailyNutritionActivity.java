@@ -80,6 +80,14 @@ public class DailyNutritionActivity extends AppCompatActivity {
 
         final DecimalFormat df = new DecimalFormat("#.##");
 
+        calories = 0;
+        fat = 0;
+        carb = 0;
+        sodium = 0;
+        sugar = 0;
+        protein = 0;
+
+
         calorieAmount.addTextChangedListener(new TextWatcher() {
             @Override
             public void afterTextChanged(Editable s) {

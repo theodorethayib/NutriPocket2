@@ -100,7 +100,7 @@
                 android:id="@+id/amountOfCalories"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
-                android:inputType="text"/>
+                android:inputType="number"/>
 
         </LinearLayout>
 
